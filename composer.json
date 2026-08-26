@@ -55,6 +55,9 @@
         "test": "pest",
         "lint": "pint --test",
         "format": "pint",
-        "analyse": "phpstan analyse"
+        "analyse": "phpstan analyse",
+        "post-create-project-cmd": [
+            "@php bin/setup.php"
+        ]
     }
 }
