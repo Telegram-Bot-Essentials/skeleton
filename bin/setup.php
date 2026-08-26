@@ -114,6 +114,13 @@ file_put_contents(
 unlink(__FILE__);
 @rmdir($root.'/bin');
 
+// --- Regenerate the autoloader: it still maps the old Skeleton namespace,
+// --- since composer install ran (and wrote it) before this script did ---
+
+if (file_exists($root.'/vendor/autoload.php')) {
+    exec('cd '.escapeshellarg($root).' && composer dump-autoload -q');
+}
+
 // --- Reformat: renaming can reorder how imports should sort -------------
 
 $pint = $root.'/vendor/bin/pint';
