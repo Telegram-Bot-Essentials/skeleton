@@ -51,6 +51,10 @@ $translationPrefix = "tbe-{$slug}";
 
 $replacements = [
     'telegram-bot-essentials/skeleton' => $packageName,
+    // composer.json stores namespaces JSON-escaped (double backslash), plain
+    // .php files use a single backslash - both forms need a search key, or
+    // composer.json's autoload/extra.laravel.providers entries are missed.
+    'TelegramBotEssentials\\\\Skeleton' => str_replace('\\', '\\\\', $namespace),
     'TelegramBotEssentials\\Skeleton' => $namespace,
     'TbeSkeletonServiceProvider' => $providerClass,
     'tbe-skeleton' => $translationPrefix,
