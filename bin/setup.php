@@ -114,6 +114,13 @@ file_put_contents(
 unlink(__FILE__);
 @rmdir($root.'/bin');
 
+// --- Reformat: renaming can reorder how imports should sort -------------
+
+$pint = $root.'/vendor/bin/pint';
+if (file_exists($pint)) {
+    exec('cd '.escapeshellarg($root).' && '.escapeshellarg($pint));
+}
+
 // --- Fresh git history ---------------------------------------------------
 
 if (is_dir($root.'/.git')) {
