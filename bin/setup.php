@@ -10,7 +10,6 @@
  * definitely finished installing, so nothing here can assume Composer's
  * autoloader or any vendor package is available yet.
  */
-
 $root = dirname(__DIR__);
 
 function prompt(string $question, ?string $default = null): string
