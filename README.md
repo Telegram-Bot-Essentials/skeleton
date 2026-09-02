@@ -52,4 +52,4 @@ then add `- phpstan-baseline.neon` to `phpstan.neon.dist`'s `includes`. New code
 
 ## See also
 
-- [telegram-bot-essentials/essence](https://github.com/Elyar0/telegram-bot-essentials) - the core framework this depends on, including its own README's Testing section for the full `Testing\TestCase` API.
+- [telegram-bot-essentials/essence](https://github.com/Telegram-Bot-Essentials/essence) - the core framework this depends on, including its own README's Testing section for the full `Testing\TestCase` API.

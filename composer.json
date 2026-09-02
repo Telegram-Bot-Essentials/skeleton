@@ -5,7 +5,7 @@
     "require": {
         "php": "^8.3",
         "laravel/framework": "^12 || ^13",
-        "telegram-bot-essentials/essence": "0.12.x-dev"
+        "telegram-bot-essentials/essence": "^0.12"
     },
     "require-dev": {
         "larastan/larastan": "^3.0",
@@ -35,12 +35,6 @@
         }
     ],
     "minimum-stability": "stable",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/Elyar0/telegram-bot-essentials"
-        }
-    ],
     "extra": {
         "laravel": {
             "providers": [
