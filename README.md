@@ -38,7 +38,7 @@ Then:
 - **`CallbackQuery`s and `StateAnswer`s *are* self-registered**, in the provider's `boot()` via `callbackQueryBus()->addCallbackQueries([...])`/`stateAnswerBus()->addStateAnswers([...])` - list yours there and essence's `Testing\TestCase` picks them up automatically once your provider is registered.
 - **`postWebhookUpdate()` drives the real stack** - routing, `TelegramBotAuthentication`, the controller - not a shortcut. Outbound Telegram calls are faked automatically (`LaravelHttpClient` routes every SDK call through `Illuminate\Support\Facades\Http`, and `Http::fake()` runs in `setUp()`), so nothing ever reaches the real Telegram API.
 - **`makeBot()` defaults `activated_until` ten years out.** The `bots` migration's `useCurrent()` means a bot created without one is immediately treated as expired.
-- **Role-gated handlers need `makeBotUser()`** with an explicit `power`, pre-created at the same `peerId` you pass to `makeMessageUpdate()`/`makeCallbackQueryUpdate()` - otherwise the webhook auth flow auto-creates a fresh member-level user.
+- **Handlers that ask for a permission need `$this->grant($this->makeBotUser($bot, $peerId), 'your.permission')`**, pre-created at the same `peerId` you pass to `makeMessageUpdate()`/`makeCallbackQueryUpdate()` - otherwise the webhook auth flow auto-creates a fresh user who holds nothing.
 
 ## Static analysis
 
